@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<section class="mt-5">
+    <div class="container">
+      <div style="min-height: 150px;position:relative; " class="p-3 mb-4 pl-5 w-100 bg-dark text-white">
+        <div class="text-white text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          <h1> Ajouter  </h1>
+        </div>
+      </div>
+      <div style="min-height: 200px" class="p-3 pl-5 w-100 bg-white m-0 mb-5 pt-5">
+        <form class="form-horizontal" action="/patient/{{pat_id}}/add/ainsAction" method="post">
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Nom">AINS:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="ains">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Nom">Dose:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="dose">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Nom">Frequence:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="freq">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Prenom">date de debut:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="date" name="date_debut">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Email">date d'arret:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="date" name="datearret">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+
+          <div class="w-100 text-center">
+            <input type="submit" value="Annuler " class="btn btn-secondary pl-5 pr-5 bg-dark btn-sm">
+              <input type="submit" value="Ajouter " class="btn btn-secondary pl-5 pr-5 bg-dark btn-sm">
+          </div>
+
+
+
+        </form>
+
+
+      </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

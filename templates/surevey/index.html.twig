@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<style>
+    .example-wrapper { margin: 3em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+  Survey List:
+  <table class="w-100">
+    {% for survey in surveys %}
+      <tr>
+        <td>
+          {{survey.title}}
+        </td>
+        <td>
+          {{survey.createdBy}}
+        </td>
+        <td>
+          {{survey.description}}
+        </td>
+        <td>
+          {{survey.Questions | length}}
+        </td>
+        <td>
+          {% if not survey.creationDate is empty %}
+          <small>
+            <a href="#"> {{survey.creationDate | date('m/d/Y à H:i')}}</a>
+          </small>
+          {% endif %}
+        </td>
+        <td>
+          <small>
+            <a href="/survey/add/response" class="bg-primary text-white pr-3 pl-3">Repondre au questionaire </a>
+          </small>
+          <small>
+            <form class="" action="/survey/delete" method="post">
+              <input type="text" hidden name="SRV" value={{survey.id}}>
+              <input type="submit" class="bg-danger text-white pr-3 pl-3" value="supprimer ">
+            </form>
+          </small>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

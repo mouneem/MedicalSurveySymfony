@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Welcome | Bienvenu{% endblock %}
+
+{% block content %}
+  <div class="">
+    <script type="text/javascript">
+      var element = document.body;
+      element.classList.add("bg-gray");
+    </script>
+    <div class="container mt-5">
+      <div class="row ">
+        <div class="broder-primary border bg-white mt-5 pt-3  pb-4 col-sm-10 offset-sm-1 col-md-6 offset-md-3">
+          <div class="row text-center pt-2 pb-4">
+            <h3 class=" w-100">Sign up</h3>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="input-group mb-3">
+                {{ form_start(form) }}
+
+                {{ form_label(form.username) }}
+                <div class="alert-danger">{{ form_errors(form.username) }}</div>
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </div>
+                {{ form_widget(form.username)}}
+              </div>
+            </div>
+              <div class="col-12">
+                <div class="input-group mb-3">
+
+                  {{ form_label(form.email) }}
+                  <div class="alert-danger">{{ form_errors(form.email) }}</div>
+
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                      <i class="fa fa-at"></i>
+                    </span>
+                  </div>
+                  {{ form_widget(form.email)}}
+                </div>
+              </div>
+
+
+                              <div class="col-12">
+                                <div class="input-group mb-3">
+
+                                  {{ form_label(form.plainPassword.first) }}
+                                  <div class="alert-danger">{{ form_errors(form.plainPassword.first) }}</div>
+
+
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                      <i class="fa fa-lock"></i>
+                                    </span>
+                                  </div>
+                                  {{ form_widget(form.plainPassword.first)}}
+                                </div>
+                              </div>
+
+                              <div class="col-12">
+                                <div class="input-group mb-3">
+
+                                  {{ form_label(form.plainPassword.second ) }}
+                                  <div class="alert-danger">{{ form_errors(form.plainPassword.second  ) }}</div>
+
+
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                      <i class="fa fa-lock"></i>
+                                    </span>
+                                  </div>
+                                  {{ form_widget(form.plainPassword.second  )}}
+                                </div>
+                              </div>
+
+
+
+
+              <div class="col-12 mt-3 text-center">
+                <button type="submit" class="btn btn-block btn-info text-uppercase" name="" >Register</button>
+              </div>
+              {{ form_end(form) }}
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="broder-primary border bg-white pt-3  pb-4 col-sm-10 offset-sm-1 col-md-6 offset-md-3">
+          <div class="row w-100">
+            <div class="col-8 offset-2 mt-3 text-center">
+              <div class="mb-2">
+                <h5>One click register:</h5>
+              </div>
+              <button type="button" class="btn btn-block bg-fb btn-primary" name="button"> <i class="fab fa-facebook pr-2"></i> Se connecter avec facebook</button>
+              <button type="button" class="btn btn-block btn-danger" name="button"> <i class="fab fa-google pr-2"></i> Se connecter avec google</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block footer %}{% endblock %}

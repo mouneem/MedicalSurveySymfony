@@ -1,0 +1,171 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<script src="/js/jquery.js" charset="utf-8"></script>
+
+
+<section class="mt-5">
+    <div class="container">
+      <div style="min-height: 150px;position:relative; " class="p-3 mb-4 pl-5 w-100 bg-dark text-white">
+        <div class="text-white text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          <h1> Ajouter question: profile patient </h1>
+        </div>
+      </div>
+
+      <div class="p-3 m-0 pl-5 w-100 bg-dark text-white">
+        <h3>Ajouter une nouvelle question</h3>
+      </div>
+      <div style="min-height: 200px" class="p-3 pl-5 w-100 bg-white m-0 mb-5 pt-5">
+
+        <form class="form-horizontal" action="/patientquestionAdd" method="post">
+
+
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Numerotel">Type du question:</label>
+            <div class="col-sm-7">
+              <select class="form-control" type="text" name="Type" id="typeSelect" onchange="changeSelect()" >
+                <option value="simple">Question avec réponse textuelle à saisire</option>
+                <option value="select" selected>Liste déroulante avec choix simple</option>
+                <option value="Commentaire" selected>Commentaire</option>
+                <option value="Titre" selected>Titre</option>
+              </select>
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+
+
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Nom">Titre:</label>
+            <div class="col-sm-7" >
+              <input class="form-control" placeholder="Titre de la question" type="text" name="Title">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Prenom">Question:</label>
+            <div class="col-sm-7" >
+              <input class="form-control" placeholder="Question à poser" type="text" name="Question">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" >Description:</label>
+            <div class="col-sm-7" >
+              <input class="form-control" placeholder="Description de la question" type="text" name="Description">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+
+          <div class="grp">
+            <div class="" id='TextBoxesGroup'>
+                <div class="">
+                  <div class="row text-center">
+                    <div class="col-12">
+                      <label class="label-control">Liste de options:</label>
+                    </div>
+                  </div>
+                  <div class="row mb-1"  id="TextBoxDiv1">
+                    <div class="col-sm-1"></div>
+                    <label class="control-label col-sm-2">Option:</label>
+                    <div class="col-sm-7" >
+                      <input class="form-control" placeholder="Proposition de réponse"  id='textbox1' type="text" name="Awnser[]">
+                    </div>
+                    <div class="col-2">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="row mb-2">
+                  <div class=" col-sm-12 text-center">
+                    <label class="control-label">Vous pouvez ajouter ou supprimer des questions:</label>
+                    <button type="button" class="btn btn-default btn-sm mr-5 ml-5" name="button" id='addButton'>✚ Ajouter</button>
+                    <button type="button" class="btn btn-default btn-sm mr-5 ml-5" name="button"  id='RemoveButton'>✖ Suprimer</button>
+                  </div>
+                </div>
+              </div>
+
+
+          <input class="form-control"  type="text" hidden value={{ "now"|date("m/d/Y") }} name="AddDate">
+<hr>
+          <div class="w-100 text-center mt-4">
+              <a href="/" class="btn btn-secondary pl-5 pr-5 bg-dark btn-sm"> Annuler </a>
+              <input type="submit" value="Enregister" class="btn btn-secondary pl-5 pr-5 bg-dark btn-sm">
+          </div>
+        </form>
+      </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    var counter = 2;
+
+    $("#addButton").click(function () {
+
+      alert("add");
+	if(counter>20){
+            alert("Only 10 textboxes allow");
+            return false;
+	}
+
+	var newTextBoxDiv = $(document.createElement('div'))
+	     .attr("id", 'TextBoxDiv' + counter)
+	     .attr("class", 'row mb-2');
+
+	newTextBoxDiv.after().html('<div class="col-sm-1"> </div> <label class="control-label col-sm-2">Option '+ counter + ' : </label>' +
+        '<div class="col-7">'+
+          '<input class="form-control" placeholder="Proposition de réponse" id="textbox'+counter+'" type="text" name="Awnser[]">'+
+        '</div>');
+
+	newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+	counter++;
+     });
+
+     $("#RemoveButton").click(function () {
+	if(counter==2){
+          alert("No more textbox to remove");
+          return false;
+       }
+
+	counter--;
+        $("#TextBoxDiv" + counter).remove();
+
+     });
+
+     $("#getButtonValue").click(function () {
+
+	var msg = '';
+	for(i=1; i<counter; i++){
+   	  msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
+	}
+    	  alert(msg);
+     });
+  });
+</script>
+
+<script>
+  function changeSelect() {
+    var x = document.getElementById("typeSelect").value;
+    if (x = 'select') {
+      $('#grp').hide();
+    }
+    else {
+      $('#grp').show();
+    }
+  }
+</script>
+
+<script src="/js/jquery.js" charset="utf-8"></script>
+
+{% endblock %}

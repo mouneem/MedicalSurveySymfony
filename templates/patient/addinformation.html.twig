@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+
+
+<section class="mt-5">
+    <div class="container">
+      <div style="min-height: 150px;position:relative; " class="p-3 mb-4 pl-5 w-100 bg-dark text-white">
+        <div class="text-white text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          <h1>  {{  patient.nom  }} {{  patient.prenom  }}   </h1>
+        </div>
+      </div>
+
+      <div class="p-3 m-0 pl-5 w-100 bg-dark text-white">
+        <h3> Ajouter information à propos de  {{  patient.nom  }} {{  patient.prenom  }}   </h3>
+      </div>
+      <div style="min-height: 200px" class="p-3 pl-5 w-100 bg-white m-0 mb-5 pt-5">
+        <div class="p-3">
+          <form class="form-horizontal" action="/patient/add/infoAction" method="post">
+            <input name="patient" hidden value={{patient.id}} /> <br>
+              <div class="form-group">
+              {% if Questions | length > 0 %}
+                {% for qst in Questions %}
+                  <div class="row mb-3">
+                    <div class="col-3">
+                      <label for="">
+                        {% if qst.Type == "Titre" %}
+                          <h3>
+                        {% endif %}
+                        {{ qst.question }} <br>
+                          {% if qst.Type == "Titre" %}
+                        </h3>
+                        {% endif %}
+                      </label>
+                      <small>
+                        {{ qst.description }}
+                      </small>
+                    </div>
+                    <div class="col-7">
+                      <input name="questionId[]" hidden value={{qst.id}} />
+                      {% if qst.Type == 'text' %}
+                      <input class="form-control" type="text" name="response[]">
+                      {% endif %}
+                      {% if qst.Type == "select" %}
+                      <select class="form-control" name="response[]">
+                        {% for opt in qst.QuestionOptions %}
+                          <option value={{opt.awnser}}>{{opt.awnser}}</option>
+                        {% endfor %}
+                      </select>
+                      {% endif %}
+                      {% if qst.Type == "Commentaire" %}
+                      <textarea class="form-control" name="response[]"></textarea>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+              {% if Questions | length == 0  %}
+                    <div class="row mb-3">
+                      <div class="col-12 text-center">
+                        <h2>Toute les information nécessaire sont dèja saisie.</h2>
+                      </div>
+                    </div>
+              {% endif %}
+              </div>
+              <div class="col-sm-2"></div>
+        </div>
+        <div class="p-3 text-center">
+          <button href="/patient/add" class="btn-sm btn-secondary btn bg-dark pl-5 pr-5">Enregister</button>
+        </div>
+          </form>
+      </div>
+      </div>
+</section>
+
+
+{% endblock %}

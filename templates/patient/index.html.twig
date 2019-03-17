@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+
+
+<section class="mt-5">
+    <div class="container">
+      <div style="min-height: 150px;position:relative; " class="p-3 mb-4 pl-5 w-100 bg-dark text-white">
+        <div class="text-white text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          <h1> Liste des patients </h1>
+        </div>
+      </div>
+
+      <div class="p-3 m-0 pl-5 w-100 bg-dark text-white">
+        <h3> La liste des patients enregister dans le système: </h3>
+      </div>
+      <div style="min-height: 200px" class="p-3 pl-5 w-100 bg-white m-0 mb-5 pt-5">
+        <div class="p-3">
+          <input class="form-control" id="myInput" type="text" placeholder="Search..">
+
+          <table class="table table-striped"  id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Numéro tél</th>
+                <th>Numéro entrée</th>
+                <th>Suivi pour</th>
+                <th>Biothérapie</th>
+                <th>Assurances</th>
+                <th colspan="3">Action</th>
+              </tr>
+            </thead>
+            <tbody id="myTable">
+              {% for item in Patients_list %}
+                <tr>
+                  <td>{{item.code}}</td>
+                  <td>{{item.Nom[:6]}}. {{item.Prenom[:6]}}...</td>
+                  <td>{{item.Numerotel}}</td>
+                  <td>{{item.NumEntree}}</td>
+                  <td>{{item.suivipour[:8]}}</td>
+                  <td>{{item.biotherapieencours[:8]}}</td>
+                  <td>{{item.assurance[:8]}}</td>
+                  <td>
+                    <form class="" action="/patient/display" method="post">
+                      <input type="text" name="pat_id" value={{item.id}} hidden>
+                      <button href="#" type="submit" class="btn btn-sm btn-secondary bg-dark"> <small>Profile</small> </button> </td>
+                    </form>
+                  </td>
+                  <td>
+                    <form class="" action="/patient/delete" method="post">
+                      <input type="text" name="pat_id" value={{item.id}} hidden>
+                      <input type="submit" class="btn btn-sm btn-danger bg-danger" value="✖">
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="p-3 text-center">
+          <a href="/patient/add" class="btn-sm btn-secondary btn bg-dark pl-5 pr-5">Ajouter un nouveau patient à la base de donnée</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<style>
+    .example-wrapper { margin: 3em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+  Add patient: <br/>
+  <form class="" action="/Patientquestion/information/add" method="post">
+    <table  class="w-100">
+      {% for item in Questions %}
+        <tr>
+          <td class="w-50">
+              <a href="#">{{item.Question}}</a>
+          </td>
+          <td>
+              <a href={{['/question/delete/',item.id]|join }} class="btn btn-danger btn-sm">delete</a>
+          </td>
+          <td>
+              <a href={{item.Question}} class="btn btn-warning btn-sm">edit</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </form>
+
+</div>
+{% endblock %}

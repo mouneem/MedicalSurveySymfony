@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<section class="mt-5">
+    <div class="container">
+      <div style="min-height: 150px;position:relative; " class="p-3 mb-4 pl-5 w-100 bg-dark text-white">
+        <div class="text-white text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+          <h1> Ajouter un nouveau patient </h1>
+        </div>
+      </div>
+
+      <div class="p-3 m-0 pl-5 w-100 bg-dark text-white">
+        <h3>Ajouter un nouveau patient à la base de donnée</h3>
+      </div>
+      <div style="min-height: 200px" class="p-3 pl-5 w-100 bg-white m-0 mb-5 pt-5">
+
+
+        <form class="form-horizontal" action="/pationadd" method="post">
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Nom">Nom:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="Nom">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Prenom">Prenom:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="Prenom">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Email">Email:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="Email">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Numerotel">Numero tel:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="Numerotel">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="Adress">Adresse:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="Adress">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="code">code:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="code">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="num_entree">numéro d'entrée:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="num_entree">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="suivipour">Suivi pour:</label>
+            <div class="col-sm-7">
+              <select class="form-control" type="text" name="suivipour">
+                <option value="pr">PR</option>
+                <option value="spa">SPA</option>
+              </select>
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="biotherapieencours">Biothérapie en cours:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="biotherapieencours">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-1"></div>
+            <label class="control-label col-sm-2" for="assurance">Assurances Maladie:</label>
+            <div class="col-sm-7">
+              <input class="form-control" type="text" name="assurance">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <input class="form-control" type="text" hidden value={{ "now"|date("m/d/Y") }} name="AddDate">
+          <input class="form-control" type="text" hidden value={{ "now"|date("m/d/Y") }} name="datevisite">
+          <div class="w-100 text-center">
+            <input type="submit" value="Annuler " class="btn btn-secondary pl-5 pr-5 bg-dark btn-sm">
+              <input type="submit" value="Ajouter le nouveau patient " class="btn btn-secondary pl-5 pr-5 bg-dark btn-sm">
+          </div>
+
+
+
+        </form>
+
+
+      </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

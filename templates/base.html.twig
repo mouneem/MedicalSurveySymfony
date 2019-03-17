@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      {% block title %}Welcome!{% endblock %}
+    </title>
+      <script src="/js/jquery.min.js" charset="utf-8"></script>
+      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="/css/bootstrap.css">
+      <script src="/js/bootstrap.js" charset="utf-8"></script>
+      <script src="/js/bootstrap.min.js" charset="utf-8"></script>
+    {% block stylesheets %}
+    {% endblock %}
+  </head>
+  <body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+    {% block body %}
+
+      {% block header %}
+        <header>
+          <div class="w-100 m-0 p-3 text-center bg-dark text-white" style="margin-bottom: 0px;">
+                  <a href="/" class="text-white">
+                    <h3 class="text-white">
+                      Medical Survey
+                    </h3>
+                  </a>
+              </div>
+        </header>
+      {% endblock %}
+
+      {% block content %}{% endblock %}
+
+      {% block footer %}
+        <footer class="container">
+          <p class="float-right">
+            <a href="#">Back to top</a>
+          </p>
+          <p>© 2017-2018 Company, Inc. ·
+            <a href="#">Privacy</a>
+            ·
+            <a href="#">Terms</a>
+          </p>
+        </footer>
+      {% endblock %}
+
+      {% block javascripts %}
+      {% endblock %}
+    {% endblock %}
+  </body>
+</html>

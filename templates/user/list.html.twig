@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<style>
+    .example-wrapper { margin: 3em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+  Users: <br/>
+  <table>
+    {% for item in users %}
+      <tr>
+        <td>
+          {{item['username']}}
+        </td>
+        <td>
+          {{item['email']}}
+        </td>
+        </td>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <a href="http://localhost:8000/sequence/add" class="btn btn-danger btn-sm">Add new sequence</a>
+</div>
+{% endblock %}
