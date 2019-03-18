@@ -196,6 +196,24 @@ class SureveyController extends AbstractController
         return $this->redirectToRoute('patient');
     }
 
+    /**
+     * @Route("/question/delete/{qst_id}", name="questiondelete")
+     */
+    public function questiondelete($qst_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        if(!$qst_id)
+        {
+            throw $this->createNotFoundException('No ID found');
+        }
+
+        $qs_ansrs= $this->getDoctrine()->getEntityManager()->getRepository(Question::class)->find($qst_id);
+        $survey = $qs_ansrs->getSurvey();
+        $em->remove($qs_ansrs);
+        $em->flush();
+        return $this->redirect('/survey/edit/'.$survey->getId());
+    }
+
 
 
 
@@ -295,6 +313,40 @@ class SureveyController extends AbstractController
 
       return $this->render('surevey/list.html.twig', [ 'survey' => $Surveys,
       ]);
+    }
+
+    /**
+     * @Route("/survey/edit/{survey_id}", name="Surveyedit")
+     */
+    public function surveyedit($survey_id)
+    {
+
+      $em = $this->getDoctrine()->getManager();
+
+      $Surveys = $this->getDoctrine()->getEntityManager()->getRepository(Survey::class)->find($survey_id);
+
+      return $this->render('surevey/edit.html.twig', [ 'survey' => $Surveys,
+      ]);
+    }
+
+
+    /**
+     * @Route("/add/question/survey/{survey_id}", name="SurveyaddQuestion")
+     */
+    public function surveyaddQuestion($survey_id)
+    {
+
+      $em = $this->getDoctrine()->getManager();
+
+      $Surveys = $this->getDoctrine()->getEntityManager()->getRepository(Survey::class)->find($survey_id);
+      $qsts = $this->getDoctrine()->getEntityManager()->getRepository(Question::class)->findBy(['survey' => $survey_id]);
+
+
+      return $this->render('surevey/add-step2.html.twig', [
+          'currentSurevey' => $Surveys, 'qsts' => $qsts,
+      ]);
+
+
     }
 
 

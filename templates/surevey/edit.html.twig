@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="p-3 m-0 pl-5 w-100 bg-dark text-white">
-          <h3> Questionaires  </h3>
+          <h3> Questionaires {{survey.Title}} </h3>
         </div>
         <div class="p-3 m-0 pl-5 w-100 bg-white">
           <div class="p-3">
@@ -21,36 +21,30 @@
               <tbody>
                 <thead>
                   <th>ID</th>
-                  <th>Ajouter par</th>
                   <th>Titre</th>
                   <th>Description</th>
-                  <th>Nb. Questions</th>
-                  <th>Nb. Réponses</th>
-                  <th>Date de création</th>
-                  <th colspan="3"></th>
+                  <th>Type de question</th>
+                  <th>Nombre de réponse</th>
                 </thead>
-                {% for item in survey %}
+                {% for item in survey.Questions %}
                   <tr>
                     <td>{{item.Id}}</td>
-                    <td>{{item.CreatedBy[:10]}}</td>
                     <td>{{item.Title[:10]}}</td>
                     <td>{{item.Description[:10]}}</td>
-                    <td>{{item.Questions | length}}</td>
+                    <td>{{item.Type}}</td>
                     <td>{{item.QuestionAnswers | length}}</td>
-                    <td>{{item.CreationDate | date}}</td>
                     <td>
-                        <a href="/survey/edit/{{item.Id}}" class="btn btn-dark btn-sm "><small>Modifier</small> </a>
-                    </td>
-                    <td>
-                      <form class="" action="/survey/delete" method="post">
-                        <input type="hidden"  name="SRV" value={{item.Id}}>
-                        <button type="submit" class="btn btn-danger btn-sm "><small>Suprimer</small> </button>
-                      </form>
+                        <a href="/question/delete/{{item.Id}}" class="btn btn-danger btn-sm "><small>Suprimer</small> </a>
                     </td>
                   </tr>
                 {% endfor %}
               </tbody>
             </table>
+            <div class="row">
+              <div class="col-12">
+                <a href="/add/question/survey/{{survey.Id}}" class="btn btn-block btn-dark">Ajouter Question</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
