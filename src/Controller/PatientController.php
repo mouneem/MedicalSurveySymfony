@@ -428,6 +428,14 @@ class PatientController extends AbstractController
 
 
     /**
+    * @Route("/patient/{pat_id}/add/biotherapie", name="biotherapie")
+    */
+    public function biotherapie(Request $request, $pat_id)
+    {
+      return $this->render('patient/biotherapie.html.twig', ['pat_id'=>$pat_id]);
+    }
+
+    /**
     * @Route("/patient/{pat_id}/add/ains", name="ains")
     */
     public function ains(Request $request, $pat_id)
