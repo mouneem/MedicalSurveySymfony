@@ -70,7 +70,7 @@ class SureveyController extends AbstractController
          $question = new Question();
          $question->setQuestion($_POST['Question']['qstqst']);
          $question->setDescription($_POST['Question']['qstdescript']);
-         $question->setAboutPatient(1);
+         $question->setAboutPatient(0);
          $question->setSurvey($Survey);
          $question->setType($_POST['Question']['type']);
          $em->persist($question);
@@ -116,7 +116,7 @@ class SureveyController extends AbstractController
          $question = new Question();
          $question->setQuestion($_POST['Question']['qstqst']);
          $question->setDescription($_POST['Question']['qstdescript']);
-         $question->setAboutPatient(1);
+         $question->setAboutPatient(0);
          $question->setSurvey($Survey);
          $question->setType($_POST['Question']['type']);
          $em->persist($question);
@@ -283,13 +283,27 @@ class SureveyController extends AbstractController
 
       // $questions = $_POST['answer'];
       foreach ($_POST['answer'] as $question) {
-        if ($question['answer'] != '' and $question['answer'] != 'Veuillez choisire une réponse') {
-          $answer = new QuestionAnswer();
-          $answer->setAnswer($question['answer']);
-          $answer->setQuestion($this->getDoctrine()->getEntityManager()->getRepository(Question::class)->find($question['questionid']));
-          $answer->setPatient($patient);
-          $answer->setSurvey($survey);
-          $em->persist($answer);
+        if (isset($question['answer'])) {
+          if ($question['answer'] != '' and $question['answer'] != 'Veuillez choisire une réponse') {
+            if (is_array($question['answer'])) {
+              foreach ($question['answer'] as $k) {
+                  $answer = new QuestionAnswer();
+                  $answer->setAnswer($k);
+                  $answer->setQuestion($this->getDoctrine()->getEntityManager()->getRepository(Question::class)->find($question['questionid']));
+                  $answer->setPatient($patient);
+                  $answer->setSurvey($survey);
+                  $em->persist($answer);
+                }
+              }
+              else {
+                  $answer = new QuestionAnswer();
+                  $answer->setAnswer($question['answer']);
+                  $answer->setQuestion($this->getDoctrine()->getEntityManager()->getRepository(Question::class)->find($question['questionid']));
+                  $answer->setPatient($patient);
+                  $answer->setSurvey($survey);
+                  $em->persist($answer);
+            }
+          }
         }
       }
       $em->flush();

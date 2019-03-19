@@ -93,6 +93,15 @@
                           </select>
                         {% endif %}
 
+                        {% if item.type  == 'checkbox' %}
+                        <div class="form-check">
+                            {% for j in item.getQuestionOptions %}
+                              <input type="checkbox" class="form-check-input" value={{j.getAwnser}} name="answer[{{item.id}}][answer][]">
+                              <label class="form-check-label" for="exampleCheck1">{{j.getAwnser | capitalize}}</label> <br>
+                            {% endfor %}
+                          </div>
+                        {% endif %}
+
                       </td>
                     </tr>
                   {% endfor %}

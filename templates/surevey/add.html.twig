@@ -78,6 +78,7 @@
                         <option value="select" selected>Liste avec options</option>
                         <option value="Commentaire" >Commentaire</option>
                         <option value="Titre" >Titre</option>
+                        <option value="checkbox" >Checkbox</option>
                       </select>
                     </div>
                   </div>
@@ -191,7 +192,7 @@ $(document).ready(function(){
   function formupdate() {
       var selectedPackage = document.getElementById("select").value;
       document.getElementById('options').style.display = "block";
-      if ( document.getElementById("select").value != 'select' ) {
+      if ( document.getElementById("select").value != 'select' && document.getElementById("select").value != 'checkbox' ) {
            document.getElementById('options').style.display = "none";
       }
   }
