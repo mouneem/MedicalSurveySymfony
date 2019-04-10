@@ -1,172 +1,177 @@
 {% extends 'base.html.twig' %}
 {% block content %}
 <section class="mt-5">
-    <div class="container">
-        <div style="min-height: 150px;position:relative; " class="p-3 mb-4 pl-5 w-100 bg-dark text-white">
-          <div class="text-white text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <h1>  Ajouter Questionaires   </h1>
-          </div>
-        </div>
-        <div class="p-3 m-0 pl-5 w-100 bg-dark text-white">
+    <div class="">
+
+        <div class="p-3 m-0 pl-5 w-100 bg-color text-white">
         </div>
         <div class="p-3 m-0 pl-5 w-100 bg-white">
-          <div class="p-3 card">
-            <div class="text-center w-100 mb-3">
-              <h2>Questionaire :</h2>
-            </div>
-            <div class="row mb-3">
-              <div class="col-1">
-              </div>
-              <div class="col-3 ">
-                <label for="">Titre du questionaire</label>
-              </div>
-              <div class="col-7">
-                #{{ currentSurevey.id}} -
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-1">
-              </div>
-              <div class="col-3 ">
-                <label for="">Titre du questionaire</label>
-              </div>
-              <div class="col-7">
-                {{ currentSurevey.title}}
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-1">
-              </div>
-              <div class="col-3 ">
-                <label for="">Description: </label>
-              </div>
-              <div class="col-7">
-                {{ currentSurevey.description}}
-                {{ currentSurevey.getQuestions | length}}
-              </div>
-            </div>
-          </div>
-          <div class="mt-3 mb-3  w-100 p-3">
-            <div class="text-center w-100 mb-3">
-              <h2>Questions :</h2>
-            </div>
-            <table class="table table-striped table-hover">
-              <thead>
-                   <td> Question </td>
-                  <td> Description </td>
-                  <td> Type </td>
-               </thead>
-              <tbody>
-                {% for item in qsts %}
-                  <tr>
-                    <td> {{ item.question |capitalize  }}</td>
-                    <td> {{ item.Description |capitalize  }}</td>
-                    <td> {{ item.type |capitalize  }}</td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-
-          <div class="mt-3 mb-3 p-3 card">
-            <form class="form-horizontal" action="/survey/save" method="post">
-            <div class="row mb-2">
-              <div class=" col-sm-12 text-center">
-                <input type="submit" class="btn btn-link mr-5 ml-5" value="Terminer" >
-                <a href="#" class="btn btn-link mr-5"> <i class="fas fa-plus"></i> Ajouter une autre question</a>
-              </div>
-            </div>
-          </form>
-          </div>
-
-          <div class="mt-3 mb-3 p-3 card">
-            <form class="form-horizontal" action="/survey/next" method="post">
-              <input type="hidden" name="survey_id" value={{currentSurevey.id}}>
-              <div class="" id="TextBoxesGroup">
+          <div class="row">
+            <div class="col-6">
+              <div class="p-3 border-right">
+                <div class="w-100 mb-3">
+                  <strong>Questionaire :</strong>
+                </div>
                 <div class="row mb-3">
-                  <div class="col-1">
+                  <div class="col-4 ">
+                      <strong>
+                        ID {{ currentSurevey.id}}
+                      </strong>
                   </div>
-                  <div class="col-3 ">
-                    <label for="" >Question</label>
-                  </div>
-                  <div class="col-7">
-                    <input class="form-control" type="text" name="Question[qstqst]">
+                  <div class="col-8">
+                    {{ currentSurevey.title}}
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-1">
+                  <div class="col-4  ">
+                    <b for="">Description: </b>
                   </div>
-                  <div class="col-3 ">
-                    <label for="" >Description</label>
-                  </div>
-                  <div class="col-7">
-                    <input type="text" class="form-control" name="Question[qstdescript]" >
+                  <div class="col-8">
+                    {{ currentSurevey.description}}
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-1">
+                  <div class="col-4  ">
+                    <b for="">Nombre de question: </b>
                   </div>
-                  <div class="col-3 ">
-                    <label for="" >Type</label>
+                  <div class="col-8">
+                    {{ currentSurevey.getQuestions | length}}
                   </div>
-                  <div class="col-7">
-                    <div class="">
-                      <select onchange="formupdate()" id="select" class="form-control" name="Question[type]">
-                        <option value="text">Champ simple</option>
-                        <option value="select" selected>Liste avec options</option>
-                        <option value="Commentaire" >Commentaire</option>
-                        <option value="Titre" >Titre</option>
-                        <option value="checkbox" >Checkbox</option>
-                      </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 text-center">
+              <img src="/img/qs.png" alt="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="mt-3 mb-3 card w-100 p-3">
+              <div class="text-center w-100 mb-3">
+                <h2>Questions :</h2>
+              </div>
+              <table class="table table-striped table-hover">
+                <thead>
+                     <th> Question </th>
+                    <th> Description </th>
+                    <th> Type </th>
+                 </thead>
+                <tbody>
+                  {% for item in qsts %}
+                    <tr>
+                      <td> {{ item.question |capitalize  }}</td>
+                      <td> {{ item.Description |capitalize  }}</td>
+                      <td> {{ item.type |capitalize  }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <form class="form-horizontal" action="/survey/save" method="post">
+                <div class="w-100 text-center">
+                  <button type="submit" class="btn bg-color btn-info btn-sm " name="button"> <i class="fas fa-download " ></i> Enregistrer et terminer  </button>
+                  <a id="Trigger" onclick="showhideFunction()" class="btn bg-color btn-info btn-sm "> Ajouter une autre question <i class="fas fa-arrow-right"></i> </a>
+                </div>
+              </form>
+            </div>
+          </div>
+          <hr>
+
+          <style>
+            .toggle {
+              display: none ;
+            }
+            .toggle-active {
+              display: block !important;
+            }
+
+          </style>
+
+          <script>
+          function showhideFunction() {
+            document.getElementById("toggle").setAttribute("class", "toggle-active");
+          }
+          </script>
+
+          <div class="toggle" id="toggle">
+          <div class="row w-100">
+              <div class="col-7">
+                <div class="mt-3 mb-3" >
+                  <form class="form-horizontal" action="/survey/next" method="post">
+                    <input type="hidden" name="survey_id" value={{currentSurevey.id}}>
+                    <div class="" id="TextBoxesGroup">
+                      <div class="row mb-3">
+                        <div class="col-2 ">
+                          <b for="" >Question</b>
+                        </div>
+                        <div class="col-9">
+                          <input class="form-control" type="text" name="Question[qstqst]">
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-2 ">
+                          <b for="" >Description</b>
+                        </div>
+                        <div class="col-9">
+                          <input type="text" class="form-control" name="Question[qstdescript]" >
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-2 ">
+                          <b for="" >Type</b>
+                        </div>
+                        <div class="col-9">
+                          <div class="">
+                            <select onchange="formupdate()" id="select" class="form-control" name="Question[type]">
+                              <option value="text">Champ simple</option>
+                              <option value="select" selected>Liste avec options</option>
+                              <option value="Commentaire" >Commentaire</option>
+                              <option value="Titre" >Titre</option>
+                              <option value="Sous-titre" >Sous-titre</option>
+                              <option value="Sous-sous-titre" >Sous-sous-titre</option>
+                              <option value="checkbox" >Checkbox</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class=""  id="options">
+                      <div class="row mb-3">
+                        <div class="col-2 text-left">
+                          <b>Options:</b>
+                        </div>
+                        <div class="col-8">
+                          <a class="btn text-color btn-sm" id='addButton'> <small>Ajouter option</small> </a>
+                          <a class="btn text-danger btn-sm" id='removeButton'> <small>Supprimer option</small> </a>
+                        </div>
+                      </div>
+                      <div id='TextBoxesGroup'>
+                        <div id="TextBoxDiv1">
+                          <div class="row mb-3" id="textbox1">
+                            <div class="col-2">
+                              <label for="" >Option 1</label>
+                            </div>
+                            <div class="col-8">
+                              <input type="text"  name="option[]" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div class=""  id="options">
-
-                <div class="row mb-3">
-                  <div class="col-12 text-center">
-                    <h3>Ajouter option</h3>
-                  </div>
-                </div>
-
-                <div id='TextBoxesGroup'>
-                  <div id="TextBoxDiv1">
-                    <div class="row mb-3" id="textbox1">
-                      <div class="col-1">
-                      </div>
-                      <div class="col-3 ">
-                        <label for="" >Option 1</label>
-                      </div>
-                      <div class="col-6">
-                        <input type="text"  name="option[]" class="form-control" />
-                      </div>
-                      <div class="col-2">
-                        <a href="#" class="btn btn-dark btn-sm" id='addButton'> + </a>
-                        <a href="#" class="btn btn-danger btn-sm" id='removeButton'> - </a>
-                      </div>
+                  <div class="row mb-2">
+                    <div class=" col-sm-12 text-center">
+                      <button type="submit" class="btn bg-color mr-5 ml-5"  name="button"> Suivant <i class="fas fa-forward" ></i>   </button>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
-
-            </div>
-
-            <div class="row mb-2">
-              <div class=" col-sm-12 text-center">
-                <input type="submit" class="btn btn-dark mr-5 ml-5" value="Enregistrer" >
+              </div>
+              <div class="col-4 text-center">
+                <img src="/img/sv.jpg" alt="">
               </div>
             </div>
-          </form>
+          </div>
 
-
-
-        </div>
       </div>
 
-      <div class="">
-        <a href="/survey/save" class="btn btn-block btn-dark">Terminer</a>
-      </div>
 </section>
 
 
@@ -177,7 +182,7 @@
 
 $(document).ready(function(){
 
-   var counter = 1;
+   var counter = 2;
 
    $("#addButton").click(function () {
 
@@ -191,9 +196,8 @@ $(document).ready(function(){
 
  newTextBoxDiv.after().html(
    '<div  class="row mb-3" id="textbox'+counter+'">'+
-     '<div class="col-1"></div>'+
-     '<div class="col-3"><label>Option'+counter+'</label></div>'+
-     '<div class="col-7"><input type="text"  name="option[]" class="form-control" /></div>'+
+      '<div class="col-2"><label>Option '+counter+'</label></div>'+
+     '<div class="col-8"><input type="text"  name="option[]" class="form-control" /></div>'+
    '</div>');
 
 
@@ -204,7 +208,7 @@ $(document).ready(function(){
     });
 
     $("#removeButton").click(function () {
- if(counter==1){
+ if(counter<=2){
          alert("No more textbox to remove");
          return false;
       }
@@ -218,7 +222,7 @@ $(document).ready(function(){
     $("#getButtonValue").click(function () {
 
  var msg = '';
- for(i=1; i<counter; i++){
+ for(i=0; i<counter; i++){
      msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
  }
        alert(msg);

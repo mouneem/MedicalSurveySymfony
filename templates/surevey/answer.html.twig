@@ -1,49 +1,52 @@
 {% extends 'base.html.twig' %}
 {% block content %}
 <section class="mt-5">
-    <div class="container">
-        <div style="min-height: 150px;position:relative; " class="p-3 mb-4 pl-5 w-100 bg-dark text-white">
-          <div class="text-white text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <h1>  Ajouter Questionaires   </h1>
-          </div>
-        </div>
-        <div class="p-3 m-0 pl-5 w-100 bg-dark text-white">
+    <div class="">
+
+        <div class="p-3 m-0 pl-5 w-100 bg-color text-white">
           <h3> Ajouter information à propos de {{patient.nom}} {{patient.prenom}} </h3>
         </div>
         <div class="p-3 m-0 pl-5 w-100 bg-white">
           <div class="p-3 card">
-            <div class="text-center w-100 mb-3">
-              <h2>Questionaire :</h2>
-            </div>
-            <div class="row mb-3">
-              <div class="col-1">
+            <div class="row">
+              <div class="col-6">
+                <div class="text-center w-100 mb-3">
+                  <h2>Questionnaire :</h2>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-1">
+                  </div>
+                  <div class="col-3 ">
+                    <label for="">Id du questionaire</label>
+                  </div>
+                  <div class="col-7">
+                    #{{ survey.id}} -
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-1">
+                  </div>
+                  <div class="col-3 ">
+                    <label for="">Titre du questionaire</label>
+                  </div>
+                  <div class="col-7">
+                    {{ survey.title}}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-1">
+                  </div>
+                  <div class="col-3 ">
+                    <label for="">Description: </label>
+                  </div>
+                  <div class="col-7">
+                    {{ survey.description}}
+                    {{ survey.getQuestions | length}}
+                  </div>
+                </div>
               </div>
-              <div class="col-3 ">
-                <label for="">Id du questionaire</label>
-              </div>
-              <div class="col-7">
-                #{{ survey.id}} -
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-1">
-              </div>
-              <div class="col-3 ">
-                <label for="">Titre du questionaire</label>
-              </div>
-              <div class="col-7">
-                {{ survey.title}}
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-1">
-              </div>
-              <div class="col-3 ">
-                <label for="">Description: </label>
-              </div>
-              <div class="col-7">
-                {{ survey.description}}
-                {{ survey.getQuestions | length}}
+              <div class="col-6 text-center">
+                <img src="/img/qs.png" alt="">
               </div>
             </div>
           </div>
@@ -52,35 +55,56 @@
               <h2>Questions :</h2>
             </div>
             <table class="table table-striped table-hover">
+              <tr class="bg-color">
+                <th>Question</th>
+                <th style="width: 70%"> Réponse </th>
+              </tr>
               <tbody>
                 <form class="" action="/add/survey/reply" method="post">
                   <input type="hidden" name="pat_id" value={{patient.id}}>
                   <input type="hidden" name="survey_id" value={{survey.id}}>
                   {% for item in questions %}
-                    <tr>
-                      <td>
+                    <tr {% if (item.Type == 'Titre' )%} class="bg-color" {% endif %}>
+                      <td
+                      {% if (item.Type == "Titre" or item.Type == "Sous-titre" or item.Type == "Sous-sous-titre" )%} colspan="2" {% endif %}
+                      >
                           <label for="">
-                            {% if item.Type == "Titre" %}
+                            {% if (  item.Type == "Titre" )%}
                               <h3>
                             {% endif %}
+                            {% if (  item.Type == "Sous-titre" )%}
+                              <b> <h5 class="text-color">
+                            {% endif %}
+                            {% if (  item.Type == "Sous-sous-titre" )%}
+                              <b> <span class="text-color">
+                            {% endif %}
                             {{ item.question |capitalize  }} <br>
-                              {% if item.Type == "Titre" %}
-                            </h3>
+                            {% if (  item.Type == "Sous-sous-titre" )%}
+                          </h5> </b>
+                            {% endif %}
+                            {% if (  item.Type == "Sous-titre" )%}
+                          </h5> </b>
+                            {% endif %}
+                            {% if (  item.Type == "Titre" )%}
+                              </h3>
                             {% endif %}
                           </label>
 
                         <br>
                         <small>
-                          {{ item.Description |capitalize  }}
+                          {% if ( item.Type != "Sous-sous-titre" ) %}
+                            {{ item.Description |capitalize  }}
+                          {% endif %}
                         </small>
                       </td>
+                    {% if (item.Type != "Titre" and item.Type != "Sous-titre" )%}
                       <td>
                         <input type="hidden" class="form-control" name="answer[{{item.id}}][questionid]" value={{item.id}}>
                         {% if item.type  == 'text' %}
                           <input type="text" class="form-control" name="answer[{{item.id}}][answer]" value="">
                         {% endif %}
 
-                        {% if item.type == 'Commentaire' %}
+                        {% if (item.type == 'Commentaire' or item.type == 'textarea' ) %}
                           <textarea type="text" class="form-control" name="answer[{{item.id}}][answer]" value="">
                           </textarea>
                       {% endif %}
@@ -103,12 +127,13 @@
                         {% endif %}
 
                       </td>
+                    {% endif %}
                     </tr>
                   {% endfor %}
                   <tr>
                     <td colspan="2" class="text-center bg-white">
                       <input type="reset" class="btn mr-3 ml-3 btn-default" name="button" value="Suprimer" />
-                      <input type="submit" class="btn mr-3 ml-3 btn-dark  text-white" name="button" value="Terminer" />
+                      <input type="submit" class="btn mr-3 ml-3 bg-color text-white" name="button" value="Terminer" />
                     </td>
                   </tr>
                 </form>

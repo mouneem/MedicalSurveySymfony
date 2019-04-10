@@ -6,18 +6,14 @@
 
 
 <section class="mt-5">
-    <div class="container">
-        <div style="min-height: 150px;position:relative; " class="p-3 mb-4 pl-5 w-100 bg-dark text-white">
-          <div class="text-white text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <h1>  Liste des Questionaires   </h1>
-          </div>
-        </div>
-        <div class="p-3 m-0 pl-5 w-100 bg-dark text-white">
+    <div class="">
+
+        <div class="p-3 m-0 pl-5 w-100 bg-color bg-color text-white">
           <h3> Questionaires  </h3>
         </div>
         <div class="p-3 m-0 pl-5 w-100 bg-white">
           <div class="p-3">
-            <table class="table table-striped table-hover">
+            <table class="table table- table-hover">
               <tbody>
                 <thead>
                   <th>ID</th>
@@ -32,19 +28,19 @@
                 {% for item in survey %}
                   <tr>
                     <td>{{item.Id}}</td>
-                    <td>{{item.CreatedBy[:10]}}</td>
-                    <td>{{item.Title[:10]}}</td>
-                    <td>{{item.Description[:10]}}</td>
+                    <td>{{item.CreatedBy}}</td>
+                    <td><small>{{item.Title}}</small> </td>
+                    <td> <small>{{item.Description}}</small> </td>
                     <td>{{item.Questions | length}}</td>
                     <td>{{item.QuestionAnswers | length}}</td>
                     <td>{{item.CreationDate | date}}</td>
                     <td>
-                        <a href="/survey/edit/{{item.Id}}" class="btn btn-dark btn-sm "><small>Modifier</small> </a>
+                        <a href="/survey/edit/{{item.Id}}" class="btn btn-link nounderline text-color btn-sm "><small>Modifier</small> </a>
                     </td>
                     <td>
                       <form class="" action="/survey/delete" method="post">
                         <input type="hidden"  name="SRV" value={{item.Id}}>
-                        <button type="submit" class="btn btn-danger btn-sm "><small>Suprimer</small> </button>
+                        <button type="submit" class="btn btn-link nounderline text-danger btn-sm "><small>Suprimer</small> </button>
                       </form>
                     </td>
                   </tr>

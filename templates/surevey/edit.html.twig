@@ -7,12 +7,8 @@
 
 <section class="mt-5">
     <div class="container">
-        <div style="min-height: 150px;position:relative; " class="p-3 mb-4 pl-5 w-100 bg-dark text-white">
-          <div class="text-white text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-            <h1>  Liste des Questionaires   </h1>
-          </div>
-        </div>
-        <div class="p-3 m-0 pl-5 w-100 bg-dark text-white">
+
+        <div class="p-3 m-0 pl-5 w-100 bg-color text-white">
           <h3> Questionaires {{survey.Title}} </h3>
         </div>
         <div class="p-3 m-0 pl-5 w-100 bg-white">
@@ -29,12 +25,12 @@
                 {% for item in survey.Questions %}
                   <tr>
                     <td>{{item.Id}}</td>
-                    <td>{{item.Title[:10]}}</td>
-                    <td>{{item.Description[:10]}}</td>
+                    <td><small>{{item.Question}}<small></td>
+                    <td><small>{{item.Description[:10]}}<small></td>
                     <td>{{item.Type}}</td>
                     <td>{{item.QuestionAnswers | length}}</td>
                     <td>
-                        <a href="/question/delete/{{item.Id}}" class="btn btn-danger btn-sm "><small>Suprimer</small> </a>
+                        <a href="/question/delete/{{item.Id}}" class="btn btn-link nounderline text-danger btn-sm "><small>Suprimer</small> </a>
                     </td>
                   </tr>
                 {% endfor %}
@@ -42,7 +38,7 @@
             </table>
             <div class="row">
               <div class="col-12">
-                <a href="/add/question/survey/{{survey.Id}}" class="btn btn-block btn-dark">Ajouter Question</a>
+                <a href="/add/question/survey/{{survey.Id}}" class="btn btn-block bg-color">Ajouter Question</a>
               </div>
             </div>
           </div>

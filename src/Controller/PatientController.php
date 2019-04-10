@@ -14,6 +14,7 @@ use App\Entity\InfoAnswer;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -60,9 +61,14 @@ class PatientController extends AbstractController
      */
     public function addPatient()
     {
+      $patients = $this->getDoctrine()
+             ->getRepository(Patient::class)
+             ->findAll();
+
+
         $patient_list = [];
         return $this->render('patient/add.html.twig', [
-            'Patients' => $patient_list, 'controller_name' => "add ;) !"
+            'Patients' => $patients, 'controller_name' => "add ;) !"
         ]);
     }
 
@@ -460,6 +466,36 @@ class PatientController extends AbstractController
 
 
 
+            /**
+            * @Route("/patient/{pat_id}/add/biotherapieAction", name="biotehAction")
+            */
+            public function biotehAction(Request $request, $pat_id)
+            {
+              $em = $this->getDoctrine()->getManager();
+              if(!$pat_id )
+              {
+                  throw $this->createNotFoundException('No ID found');
+              }
+
+              $patient = $this->getDoctrine()->getEntityManager()->getRepository(Patient::class)->Find($pat_id);
+
+              if (isset($_POST['biotherapie'])) {
+                $bt = new Biotehrapie();
+                $bt->setBiotherapie($_POST['biotherapie']);
+                $bt->setDateDebut( \DateTime::createFromFormat('Y-m-d',$_POST['date_debut']));
+                $bt->setDatearret($_POST['datearret']);
+                $bt->setMotifArret($_POST['motif_arret']);
+                $bt->setPatient($patient);
+                $em->persist($bt);
+              }
+              $em->flush();
+              return $this->redirect('/patient/'.$pat_id);
+            }
+
+
+
+
+
         /**
         * @Route("/patient/{pat_id}/add/ainsAction", name="ainsAction")
         */
@@ -485,7 +521,7 @@ class PatientController extends AbstractController
           }
           $em->flush();
 
-          return $this->redirectToRoute('main');
+          return $this->redirect('/patient/'.$pat_id);
         }
 
 
@@ -514,7 +550,7 @@ class PatientController extends AbstractController
           }
           $em->flush();
 
-          return $this->redirectToRoute('main');
+          return $this->redirect('/patient/'.$pat_id);
         }
 
 
@@ -543,7 +579,7 @@ class PatientController extends AbstractController
           }
           $em->flush();
 
-          return $this->redirectToRoute('main');
+          return $this->redirect('/patient/'.$pat_id);
         }
 
 

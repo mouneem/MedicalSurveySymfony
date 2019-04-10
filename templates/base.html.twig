@@ -6,6 +6,7 @@
       {% block title %}Welcome!{% endblock %}
     </title>
       <script src="/js/jquery.min.js" charset="utf-8"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css">
       <link rel="stylesheet" href="/css/style.css">
       <link rel="stylesheet" href="/css/bootstrap.css">
       <script src="/js/bootstrap.js" charset="utf-8"></script>
@@ -18,27 +19,62 @@
 
       {% block header %}
         <header>
-          <div class="w-100 m-0 p-3 text-center bg-dark text-white" style="margin-bottom: 0px;">
-                  <a href="/" class="text-white">
-                    <h3 class="text-white">
-                      Medical Survey
-                    </h3>
+          <div class="w-100 m-0 p-3 color text-left bg-white shadow-sm border-bottom" style="margin-bottom: 0px;">
+                  <a href="/" class="nounderline pl-5">
+                    <i class="text-bold text-color ">Medical Survey</i>
                   </a>
+                  <div class="float-right">
+                    <a href="/" class="nounderline pl-5">
+                      <i class="text-bold text-color ">Accueil</i>
+                    </a>
+                    <a href="/" class="nounderline pl-5">
+                      <i class="text-bold text-color ">Créer un Compte </i>
+                    </a>
+                    <a href="/" class="nounderline pl-5">
+                      <i class="text-bold text-color ">Se Connecter</i>
+                    </a>
+                  </div>
               </div>
         </header>
       {% endblock %}
 
-      {% block content %}{% endblock %}
+
+      <div class="row">
+        <div class="col-2">
+          {% block leftmenu %}
+            <div class="h-100 w-100 bg-white shadow-sm border-right p-3" style="position:absolute; min-height:600px;">
+              <div class="w-100 p-4 mt-2 border-top">
+                  <a href="/" class="btn-link btn -block m-2 nounderline"> <i class="text-color fas fa-home"></i> <span class="text-dark pl-3"> Accueil</span> </a>
+              </div>
+              <div class="w-100 p-4 mt-2 border-top">
+                  <a href="/patient" class="btn-link btn-block m-2 nounderline"> <i class="text-color fas fa-users"></i> <span class="text-dark pl-3"> Liste des patients</span> </a>
+                  <a href="/patient/add" class="btn-link btn-block m-2 nounderline"> <i class="text-color fas fa-plus"></i> <span class="text-dark pl-3"> Ajouter un patient</span> </a>
+              </div>
+              <div class="w-100 p-4 mt-2 border-top">
+                  <a href="/survey/list" class="btn-link btn-block m-2 nounderline"> <i class="text-color fas fa-folder-open"></i> <span class="text-dark pl-3"> Liste des questionnaire</span> </a>
+                  <a href="/survey/add" class="btn-link btn-block m-2 nounderline"> <i class="text-color fas fa-file-signature"></i> <span class="text-dark pl-3"> Créer un questionnaire</span> </a>
+              </div>
+              <div class="w-100 p-4 mt-2 border-top">
+                  <a href="#" class="btn-link btn-block m-2 nounderline"> <i class="text-color fas fa-share-square"></i> <span class="text-dark pl-3"> Exporter les données</span> </a>
+                  <a href="#" class="btn-link btn-block m-2 nounderline"> <i class="text-color fas fa-file-download"></i> <span class="text-dark pl-3"> Exporter patients</span> </a>
+                  <a href="#" class="btn-link btn-block m-2 nounderline"> <i class="text-color fas fa-file-export"></i> <span class="text-dark pl-3"> Exporter questionnaire</span> </a>
+              </div>
+            </div>
+          {% endblock %}
+        </div>
+        <div class="col-10 ">
+          <div class="pr-5 pl-5">
+            {% block content %}{% endblock %}
+          </div>
+        </div>
+      </div>
 
       {% block footer %}
-        <footer class="container">
+        <footer class="container mt-5 pt-5">
           <p class="float-right">
             <a href="#">Back to top</a>
           </p>
-          <p>© 2017-2018 Company, Inc. ·
-            <a href="#">Privacy</a>
-            ·
-            <a href="#">Terms</a>
+          <p>© 2019 - <a href="mailto:benhrif.oussama@gmail.com"> OUSSAMA BENHIRF </a>
           </p>
         </footer>
       {% endblock %}

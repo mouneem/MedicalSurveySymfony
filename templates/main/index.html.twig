@@ -1,33 +1,96 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-
-
-  <section class="mt-5">
-      <div class="container">
-        <div class="row">
-          <a href="/patient" class="col-12 bg-dark text-center text-white pt-4 pb-4">
-            <h3>Liste des patients </h3>
-          </a>
-          <a href="/patient/add" class="col-12  bg-dark text-center text-white pt-4 pb-4">
-            <h3>Ajouter un patient </h3>
-          </a>
-          <a href="/survey/add" class="col-12  bg-dark text-center text-white pt-4 pb-4">
-            <h3>Créer un questionaire </h3>
-          </a>
-          <a href="/survey/list" class="col-12  bg-dark text-center text-white pt-4 pb-4">
-            <h3>Liste des questionaires </h3>
-          </a>
-          <a href="/patient/export/csv" class="col-12  bg-dark text-center text-white pt-4 pb-4">
-            <h3>Exporter la liste des patients </h3>
-          </a>
-          <a href="/answers/exportcsv" class="col-12  bg-dark text-center text-white pt-4 pb-4">
-            <h3>Exporter les resultats </h3>
-          </a>
-          <a href="/export/data" class="col-12  bg-dark text-center text-white pt-4 pb-4">
-            <h3>Exporter autres informations </h3>
-          </a>
-        </div>
+  <style media="screen">
+  .image{
+      position:relative;
+      overflow:hidden;
+      padding-bottom:100%;
+  }
+  .image img{
+        position: absolute;
+        max-width: 100%;
+        max-height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+  }
+  </style>
+  <section class="mt-4">
+    <div class="row p-5">
+      <div class="col-3">
+        <a href="/patient" class="card nounderline">
+          <div class="card-body">
+            <div class="thumbnail">
+                <div class="image">
+                    <img src="/img/pts.jpg" class="img img-responsive full-width" />
+                </div>
+            </div>
+            <h5 class="card-title text-center">Liste des patients</h5>
+          </div>
+        </a>
       </div>
+      <div class="col-3">
+        <a href="/patient/add" class="card nounderline">
+          <div class="card-body">
+            <div class="image">
+              <img class="card-img-top img img-responsive full-width" src="/img/pt.jpg" alt="Card image cap">
+            </div>
+            <h5 class="card-title text-center">Ajouter un patient</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="/survey/add" class="card nounderline">
+          <div class="card-body">
+            <div class="image">
+              <img class="card-img-top img img-responsive full-width" src="/img/qs.jpg" alt="Card image cap">
+            </div>
+            <h5 class="card-title text-center">Créer un questionaire</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="/survey/list" class="card nounderline">
+          <div class="card-body">
+            <div class="image">
+              <img class="card-img-top img img-responsive full-width" src="/img/qst.jpg" alt="Card image cap">
+            </div>
+            <h5 class="card-title text-center">Liste des questionaires</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="/patient/export/csv" class="card nounderline">
+          <div class="card-body">
+            <div class="image">
+              <img class="card-img-top img img-responsive full-width" src="/img/qst.jpg" alt="Card image cap">
+            </div>
+            <h5 class="card-title text-center">Exporter la liste des patients</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="/answers/exportcsv" class="card nounderline">
+          <div class="card-body">
+            <div class="image">
+              <img class="card-img-top img img-responsive full-width" src="/img/qst.jpg" alt="Card image cap">
+            </div>
+            <h5 class="card-title text-center">Exporter les resultats</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-3">
+        <a href="/export/data" class="card nounderline">
+          <div class="card-body">
+            <div class="image">
+              <img class="card-img-top img img-responsive full-width" src="/img/qst.jpg" alt="Card image cap">
+            </div>
+            <h5 class="card-title text-center">Exporter d'autres informations</h5>
+          </div>
+        </a>
+      </div>
+    </div>
   </section>
+
 {% endblock %}
