@@ -608,3 +608,8 @@ body{
   color:#fff !important;
   background-color: #69B8D6  !important;
 }
+
+
+.bg-hover:hover{
+  background: #144 !important;
+}

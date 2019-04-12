@@ -197,16 +197,16 @@
           <hr>
 
           <div class="row   ">
-            <div class="col-3 pt-3 pb-3 text-center bg-color">
+            <div class="bg-hover col-3 pt-3 pb-3 text-center bg-color">
               <a class="text-white" href="/patient/{{patient.id}}/add/biotherapie">Ajouter Biotehrapie</a>
             </div>
-            <div class="col-3 pt-3 pb-3 text-center bg-color">
+            <div class="bg-hover col-3 pt-3 pb-3 text-center bg-color">
               <a class="text-white" href="/patient/{{patient.id}}/add/dmards">Ajouter DMARDS</a>
             </div>
-            <div class="col-3 pt-3 pb-3 text-center bg-color">
+            <div class="bg-hover col-3 pt-3 pb-3 text-center bg-color">
               <a class="text-white" href="/patient/{{patient.id}}/add/ains">Ajouter AINS</a>
             </div>
-            <div class="col-3 pt-3 pb-3 text-center bg-color">
+            <div class="bg-hover col-3 pt-3 pb-3 text-center bg-color">
               <a class="text-white" href="/patient/{{patient.id}}/add/effet">Ajouter Effet</a>
             </div>
           </div>
@@ -254,28 +254,34 @@
                   </tbody>
               </table>
 
-              <br>
-              {% for survey in surv_done %}
-                {% if survey.id == 3 %}
-                  <div class="p-3">
-                    <strong>Calcul Couts indirects: </strong>
-                  </div>
-                {% endif %}
-              {% endfor %}
 
               <br>
               {% for survey in surv_done %}
-                {% if survey.id == 5 %}
+                {% if survey.id == 8 %}
                   <div class="p-3">
                     <strong>Calcul Couts Directs: </strong> <br>
                     <table class="table table-hover">
                       <tr>
                         <td> <b>Total des coûts du dernier semestre</b> </td>
-                        <td></td>
+                      </tr>
+                      <tr>
+                        <th>Consultation</th>
+                        <td>{{cnslt}} DHs</td>
+                      </tr>
+                      <tr>
+                        <th>Hospitalisation</th>
+                        <td> {{hsp}} DHs </td>
+                      </tr>
+                      <tr>
+                        <th>Bilan Radiologique</th>
+                        <td> {{radio}} DHs </td>
+                      </tr>
+                      <tr>
+                        <th>Bilan Biologique</th>
+                        <td> {{bio}} DHs </td>
                       </tr>
                     </table>
                   </div>
-
                 {% endif %}
               {% endfor %}
             </div>
