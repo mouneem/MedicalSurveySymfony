@@ -613,3 +613,7 @@ body{
 .bg-hover:hover{
   background: #144 !important;
 }
+.bg-gris{
+  background: #fafafa   !important;
+  border: 1pt solid #bbb;
+}

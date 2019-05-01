@@ -1,0 +1,1830 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<section class="mt-5">
+  <div class="p-3 m-0 pl-5 w-100 bg-color text-white">
+    <h3> Coûts directs de la maladie au cours de ces derniers 6 mois </h3>
+  </div>
+  <div class="row p-3 m-0 pl-5 w-100 bg-white">
+
+
+    <div class="">
+
+    </div>
+    <div class="col-12 bg-primary">
+      <h3>1. Consultations:</h3>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color"> 1.1 Au sein d’une structure privée :</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#bcbsasuysdaiu"> Oui </div>
+      </div>
+    </div>
+
+    <div class="col-12 collapse">
+      <div class="row">
+        <div class="col-3">
+          <div class="row">
+            <div class="col-4">Rhumatologue: </div>
+            <div class="col-4">
+              <input class="form-control" type="number" min=0 max="30" placeholder="Nb."></input>
+            </div>
+            <div class="col-4 border-left">
+              <input class="form-control" type="number" min=0 max="1000" placeholder="Prix"></input>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="row">
+            <div class="col-4">Interniste : </div>
+            <div class="col-4"> <input class="form-control" type="number" min=0 max="30" placeholder="Nb."></input></div>
+            <div class="col-4 border-left"> <input class="form-control" type="number" min=0 max="1000" placeholder="Prix"></input></div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="row">
+            <div class="col-4"> Généraliste : </div>
+            <div class="col-4"> <input class="form-control" type="number" min=0 max="30" placeholder="Nb."></input></div>
+            <div class="col-4 border-left"> <input class="form-control" type="number" min=0 max="1000" placeholder="Prix"></input></div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="row">
+            <div class="col-4"> Autres : </div>
+            <div class="col-4"> <input class="form-control" type="number" min=0 max="30" placeholder="Nb."></input></div>
+            <div class="col-4 border-left"> <input class="form-control" type="number" min=0 max="1000" placeholder="Prix"></input></div>
+          </div>
+        </div>
+        <div class="col-12 card mt-4 p-4">
+          <div class="row">
+            <div class="col-4">Remboursé:</div>
+            <div class="col-4"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Oui</label></div>
+            <div class="col-4"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Non</label></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-4">
+              Cout payé par patient après remboursement
+            </div>
+            <div class="col-4">
+              <input class="form-control" type="number" max="9999" />
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-4">
+              Cout payé par l’organisme gestionnaire
+            </div>
+            <div class="col-4">
+              <input class="form-control" type="number" max="9999" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- pulic -->
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color"> 1.2 Au sein d’une structure public :</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#id19812871728"> Oui </div>
+      </div>
+    </div>
+    <div class="collapse" id="id19812871728">
+      <ul class="nav nav-pills ">
+        <span class="mr-4">Type: </span>
+        <li class="active"><a data-toggle="pill" class="btn btn-sm mr-2 " href="#Mutualistes">Mutualistes (CNSS/CNOPS/FAR)</a></li>
+        <li><a data-toggle="pill" class="btn btn-sm mr-2" href="#Payant">Payant </a></li>
+        <li><a data-toggle="pill" class="btn btn-sm mr-2" href="#Ramedistes">Ramedistes </a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="Mutualistes" class="tab-pane fade in">
+
+
+        </div>
+        <div id="Payant" class="tab-pane fade">
+          <div class="row">
+
+          </div>
+        </div>
+
+        <div id="Ramedistes" class="tab-pane fade">
+          <div class="row">
+            <div class="col-6 p-4">
+              <h5 class="">Ramedistes</h5>
+              <div class="row mt-4">
+                <div class="col-4">Rhumatologue /Résident :</div>
+                <div class="col-4">
+                  <input class="form-control" type="number" min=0 max="30" placeholder="Nombre de Consultation"></input>
+                </div>
+                <div class="col-4 text-left"> <input class="form-control" value="60" type="number" /> </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-4">Professeur :</div>
+                <div class="col-4">
+                  <input class="form-control" type="number" min=0 max="30" placeholder="Nombre de Consultation"></input>
+                </div>
+                <div class="col-4 text-left"> <input class="form-control" value="100" type="number" /> </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-4">Généraliste :</div>
+                <div class="col-4">
+                  <input class="form-control" type="number" min=0 max="30" placeholder="Nombre de Consultation"></input>
+                </div>
+                <div class="col-4 text-left"> <input class="form-control" value="40" type="number" /> </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-4">Psychiatre :</div>
+                <div class="col-4">
+                  <input class="form-control" type="number" min=0 max="30" placeholder="Nombre de Consultation"></input>
+                </div>
+                <div class="col-4 text-left"> <input class="form-control" value="100" type="number" /> </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-12">
+      <h3 class="">2. Hospialisations :</h3>
+    </div>
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5 text-color">
+          <h4>2.1 Au sein de l’HEY ou toute autre structure Public:</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#id878172837219873982173"> Oui </div>
+      </div>
+    </div>
+    <div class="collapse" id="id878172837219873982173">
+
+      <div class="col-12 mt-2 mb-2">
+        <div class="row">
+          <div class="col-4">Motif de l’hospitalisation : </div>
+          <div class="col-2"> <input type="radio" name="motof"> Biothérapie </div>
+          <div class="col-2"> <input type="radio" name="motof"> Poussée </div>
+          <div class="col-2"> <input type="radio" name="motof"> Autre </div>
+        </div>
+      </div>
+      <div class="col-12 mt-2 mb-2">
+        <div class="row">
+          <div class="col-3">Coûts d’hospitalisation des :</div>
+          <div class="col-2"> <input class="form-control" type="number" min=0 max="6" placeholder="Nb. Jours"></input></div>
+          <div class="col-1 "> * Prix :</div>
+          <div class="col-2 "> <input class="form-control" disabled="" value="180" type="number" min=0 max="1000" placeholder="Prix Jour"></input></div>
+          <div class="col-2"> <input class="form-control" type="number" min=0 max="6" placeholder="Nb. Nuits"></input></div>
+          <div class="col-1 "> * Prix :</div>
+          <div class="col-1 "> <input disabled="" value="550" class="form-control" type="number" min=0 max="1000" placeholder="Prix Nuit"></input></div>
+        </div>
+      </div>
+    </div>
+    <!-- pulic -->
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color"> 2.2 Au sein d’une structure privée :</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#hospt_prv"> Oui </div>
+      </div>
+    </div>
+    <div id="hospt_prv" class="collapse">
+
+      <div class="col-12 mt-2 mb-2">
+        <div class="row">
+          <div class="col-3">Coûts d’hospitalisation des :</div>
+          <div class="col-2"> <input class="form-control" type="number" min=0 max="6" placeholder="Nb. Jours"></input></div>
+          <div class="col-2 "> <input class="form-control" type="number" min=0 max="1000" placeholder="Prix Jour"></input></div>
+          <div class="col-2"> <input class="form-control" type="number" min=0 max="6" placeholder="Nb. Nuits"></input></div>
+          <div class="col-2 "> <input class="form-control" type="number" min=0 max="1000" placeholder="Prix Nuit"></input></div>
+        </div>
+      </div>
+      <div class="col-12 card mt-4 p-4">
+        <div class="row">
+          <div class="col-4">Remboursé:</div>
+          <div class="col-4"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Oui</label></div>
+          <div class="col-4"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Non</label></div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-4">
+            Cout payé par patient après remboursement
+          </div>
+          <div class="col-4">
+            <input class="form-control" type="number" max="9999" />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-4">
+            Cout payé par l’organisme gestionnaire
+          </div>
+          <div class="col-4">
+            <input class="form-control" type="number" max="9999" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <h3>3. Bilans Radiologiques/ Echographie /IRM :</h3>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5 text-color">
+          <h4>3.1 Au sein d’une structure Public ::</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#id89218718656521"> Oui </div>
+      </div>
+    </div>
+
+    <div class="collapse" id="id89218718656521">
+      <ul class="nav nav-pills ">
+        <span class="mr-4">Type: </span>
+        <li class="active"><a data-toggle="pill" class="btn btn-sm mr-2 " href="#radiologique_mut">Mutualistes (CNSS/CNOPS/FAR)</a></li>
+        <li><a data-toggle="pill" class="btn btn-sm mr-2" href="#radiologique_Pay">Payant </a></li>
+        <li><a data-toggle="pill" class="btn btn-sm mr-2" href="#radiologique_Ram">Ramedistes </a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="radiologique_mut" class="tab-pane fade in">
+          <div class="row">
+
+            <div class="col-6 card p-4">
+              <div class="row">
+                <div class="col-12">
+                  <h4>Mutualistes (CNSS/CNOPS/FAR)</h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Main (F+P) </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled="" value="112.5" type="number" max="999999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Pied (F+P) </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" value="112.5" type="number" max="20"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Hanche </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled="" value="112.5" type="number" max="999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Bassin </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Rachis D</div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" value="75" max="999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Rachis L</div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled="" value="90" type="number" max="9999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Epaule</div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="127.5" type="number" max="999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">Poumon </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="120" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">DMO (Nn remboursable) </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="420" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">Autre </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6"> Echographie Mains </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Echographie Pieds : </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Echographie Enthèses : </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Echographie Hanches </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> IRM </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div id="radiologique_Pay" class="tab-pane fade">
+          <div class="row">
+
+            <div class="col-6 card p-4">
+              <div class="row">
+                <div class="col-12">
+                  <h4> Payant : </h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Main (F+P) </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled="" value="135" type="number" max="999" placeholder="Prix"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Pied (F+P) </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled="" value="135" type="number" max="999" placeholder="Prix"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Hanche </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled="" value="135" type="number" max="999" placeholder="Prix"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Bassin </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" value="111" type="number" placeholder="Prix" max="999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Rachis D</div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" value="90" disabled="" max="9999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Rachis L</div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="90" type="number"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Epaule</div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="153" type="number" max="20"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">Poumon </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="144" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">DMO (Nn remboursable) </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="420" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">Autre </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6"> Echographie Mains </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Echographie Pieds : </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Echographie Enthèses : </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Echographie Hanches </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> IRM </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="radiologique_Ram" class="tab-pane fade">
+          <div class="row">
+
+            <div class="col-6 card p-4">
+              <div class="row">
+                <div class="col-12">
+                  <h4> Ramedistes : </h4>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Main (F+P) </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled="" value="135" type="number" max="999" placeholder="Prix"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Pied (F+P) </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled="" value="135" type="number" max="999" placeholder="Prix"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Hanche </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled="" value="135" type="number" max="999" placeholder="Prix"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Bassin </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" value="111" type="number" placeholder="Prix" max="999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Rachis D</div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" value="90" disabled="" max="9999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Rachis L</div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="90" type="number"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6">Epaule</div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="153" type="number" max="20"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">Poumon </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="144" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">DMO (Nn remboursable) </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" disabled value="420" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">Autre </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6"> Echographie Mains </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Echographie Pieds : </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Echographie Enthèses : </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> Echographie Hanches </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+              <div class="row">
+                <div class="col-6"> IRM </div>
+                <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color"> 3.2 Au sein d’une structure privée :</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#radiologique_Xprive"> Oui </div>
+      </div>
+      <div class="row collapse" id="radiologique_pXrive">
+        <div class="col-6 card p-4">
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="col-6">Main (F+P) </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Pied (F+P) </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" max="999" placeholder="Prix"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">Hanche </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" max="999" placeholder="Prix"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Bassin </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">Rachis D</div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">Rachis L</div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" max="999" placeholder="Prix"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">Epaule</div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" max="999" placeholder="Prix"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">Poumon </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">DMO (Nn remboursable) </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">Autre </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6"> Echographie Mains </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Echographie Pieds : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Echographie Enthèses : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Echographie Hanches </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> IRM </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+        </div>
+        <div class="col-12 card mt-4 p-4">
+          <div class="row">
+            <div class="col-4">Remboursé:</div>
+            <div class="col-4"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Oui</label></div>
+            <div class="col-4"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Non</label></div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-4">
+              Cout payé par patient après remboursement
+            </div>
+            <div class="col-4">
+              <input class="form-control" type="number" max="9999" />
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-4">
+              Cout payé par l’organisme gestionnaire
+            </div>
+            <div class="col-4">
+              <input class="form-control" type="number" max="9999" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+
+    <div class="col-12">
+      <h3> 4. Bilans Biologiques :</h3>
+    </div>
+
+
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color"> 4.1 Au sein d’une structure Publique :</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#id2989821871"> Oui </div>
+      </div>
+      <div class="collapse" id="id2989821871">
+        <ul class="nav nav-pills ">
+          <span class="mr-4">Type: </span>
+          <li class="active"><a data-toggle="pill" class="btn btn-sm mr-2 " href="#Bilan_Bio_Mutualistes">Mutualistes (CNSS/CNOPS/FAR)</a></li>
+          <li><a data-toggle="pill" class="btn btn-sm mr-2" href="#Bilan_Bio_Payant">Payant </a></li>
+          <li><a data-toggle="pill" class="btn btn-sm mr-2" href="#Bilan_Bio_Ramedistes">Ramedistes </a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div id="Bilan_Bio_Mutualistes" class="tab-pane fade in">
+
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12">
+                  <h4>Mutualistes (CNSS/CNOPS/FAR)</h4>
+                </div>
+                <div class="col-6 card p-4">
+                  <div class="row">
+                  </div>
+                  <div class="row">
+                    <div class="col-6">ASAT </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> ALAT: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Albumine </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Anti-CCP </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">AAN ( Gougerot II aire) </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Anti ECT (Anti SSA, Anti SSB):L</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="20"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Cholestérol Total </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input type="number" placeholder="Prix" class="form-control" name="" type="number" max="9999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">ECBU : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">FR: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">HDL: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6"> HDL: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> LDL : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Créatinine : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Dosage des IgA IgG IgM: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> IRM </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> EPP: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                </div>
+
+                <div class="col-6 card p-4">
+                  <div class="row">
+                    <div class="col-6">GGT </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Glycémie : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HbA1C </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> HVA </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> HVB </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HVC</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HVC</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HIV</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HLA B27 </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Ionogramme </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">IDR : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">PAL : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">VS : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6"> CRP : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> NFS : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Quantiféron : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="Bilan_Bio_Payant" class="tab-pane fade in">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12">
+                  <h4>• Payant</h4>
+                </div>
+                <div class="col-6 card p-4">
+                  <div class="row">
+                  </div>
+                  <div class="row">
+                    <div class="col-6">ASAT </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> ALAT: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Albumine </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Anti-CCP </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">AAN ( Gougerot II aire) </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Anti ECT (Anti SSA, Anti SSB):L</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="20"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Cholestérol Total </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input type="number" placeholder="Prix" class="form-control" name="" type="number" max="9999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">ECBU : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">FR: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">HDL: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6"> HDL: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> LDL : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Créatinine : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Dosage des IgA IgG IgM: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> IRM </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> EPP: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                </div>
+
+                <div class="col-6 card p-4">
+                  <div class="row">
+                    <div class="col-6">GGT </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Glycémie : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HbA1C </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> HVA </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> HVB </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HVC</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HVC</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HIV</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HLA B27 </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Ionogramme </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">IDR : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">PAL : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">VS : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6"> CRP : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> NFS : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Quantiféron : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="Bilan_Bio_Ramedistes" class="tab-pane fade in">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12">
+                  <h4>• Ramedistes </h4>
+                </div>
+                <div class="col-6 card p-4">
+                  <div class="row">
+                  </div>
+                  <div class="row">
+                    <div class="col-6">ASAT </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> ALAT: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Albumine </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Anti-CCP </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">AAN ( Gougerot II aire) </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Anti ECT (Anti SSA, Anti SSB):L</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="20"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Cholestérol Total </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input type="number" placeholder="Prix" class="form-control" name="" type="number" max="9999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">ECBU : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">FR: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">HDL: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6"> HDL: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> LDL : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Créatinine : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Dosage des IgA IgG IgM: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> IRM </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> EPP: </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                </div>
+
+                <div class="col-6 card p-4">
+                  <div class="row">
+                    <div class="col-6">GGT </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Glycémie : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HbA1C </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> HVA </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> HVB </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HVC</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HVC</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HIV</div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">HLA B27 </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">Ionogramme </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">IDR : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">PAL : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">VS : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6"> CRP : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> NFS : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"> Quantiféron : </div>
+                    <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+                    <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="col-5">
+      <h4 class="text-color">4.2 Bilans Biologiques au sein d’une structure privée :</h4 class="text-color">
+    </div>
+    <div class="col-2"> <input type="checkbox" name="" data-toggle="collapse" data-target="#biln_bio_clps"> Oui </div>
+
+    <div class="col-12 collapse" id="biln_bio_clps">
+      <div class="row">
+        <div class="col-6 card p-4">
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="col-6">ASAT </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> ALAT: </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">Albumine </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Anti-CCP </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">AAN ( Gougerot II aire) </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="999999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">Anti ECT (Anti SSA, Anti SSB):L</div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="20"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">Cholestérol Total </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input type="number" placeholder="Prix" class="form-control" name="" type="number" max="9999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">ECBU : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">FR: </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">HDL: </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6"> HDL: </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> LDL : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Créatinine : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Dosage des IgA IgG IgM: </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> IRM </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> EPP: </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+        </div>
+
+        <div class="col-6 card p-4">
+          <div class="row">
+            <div class="col-6">GGT </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Glycémie : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">HbA1C </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> HVA </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> HVB </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">HVC</div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">HVC</div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">HIV</div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">HLA B27 </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6">Ionogramme </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">IDR : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">PAL : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">VS : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" type="number" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6"> CRP : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> NFS : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+          <div class="row">
+            <div class="col-6"> Quantiféron : </div>
+            <div class="col-3"> <input placeholder="Nb. de visite" class="form-control" name=""> </div>
+            <div class="col-3"> <input class="form-control" name="" type="number" placeholder="Prix" max="99999"> </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 card mt-4 p-4">
+        <div class="row">
+          <div class="col-4">Remboursé:</div>
+          <div class="col-4"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Oui</label></div>
+          <div class="col-4"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Non</label></div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-4">
+            Cout payé par patient après remboursement
+          </div>
+          <div class="col-4">
+            <input class="form-control" type="number" max="9999" />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-4">
+            Cout payé par l’organisme gestionnaire
+          </div>
+          <div class="col-4">
+            <input class="form-control" type="number" max="9999" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-12 ">
+      <h3> 5. Traitements médicaux :</h3>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color"> 5.1 DMARDs</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#dmrds"> Oui </div>
+      </div>
+      <div class="row mt-3 mb-3 collapse" id="dmrds">
+        <table class="table table-hover">
+          <tr>
+            <th>Nom de spécialités</th>
+            <th>Coût d’une seule prise </th>
+            <th>Coût mensuel </th>
+          </tr>
+          <tr>
+            <td> <input type="number" class="form-control" name=""> </td>
+            <td> <input type="number" class="form-control" name=""> </td>
+            <td> <input type="number" class="form-control" name=""> </td>
+          </tr>
+          <tr>
+            <td> <input type="number" class="form-control" name=""> </td>
+            <td> <input type="number" class="form-control" name=""> </td>
+            <td> <input type="number" class="form-control" name=""> </td>
+          </tr>
+          <tr>
+            <td> <input type="number" class="form-control" name=""> </td>
+            <td> <input type="number" class="form-control" name=""> </td>
+            <td> <input type="number" class="form-control" name=""> </td>
+          </tr>
+        </table>
+        <div class="col-12 card mt-4 p-4">
+          <div class="row">
+            <div class="col-4">Remboursé:</div>
+            <div class="col-2">
+              <input name="rembourse_1" class="" type="radio"></input>
+              <label class="pl-3">Oui</label>
+            </div>
+            <div class="col-2">
+              <input name="rembourse_1" class="" type="radio"></input>
+              <label class="pl-3">Non</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">Coût payé par patient après remboursement : </div>
+            <div class="col-2"><input class="form-control" type="number" min=0 max="99999" placeholder="Prix"></div>
+          </div>
+          <div class="row">
+            <div class="col-4">Coût payé l’organisme gestionnaire : </div>
+            <div class="col-2"><input class="form-control" type="number" min=0 max="99999" placeholder="Prix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color"> 5.2 BDMARDs</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#bdmrds"> Oui </div>
+      </div>
+      <div class="row mt-3 mb-3 collapse" id="bdmrds">
+        <div class="col-12">
+          <table class="table table-hover ">
+            <tr>
+              <th>Nom de spécialités</th>
+              <th>Coût d’une seule prise </th>
+              <th>Coût mensuel </th>
+            </tr>
+            <tr>
+              <td> <input class="form-control" name=""> </td>
+              <td> <input class="form-control" name=""> </td>
+              <td> <input class="form-control" name=""> </td>
+            </tr>
+            <tr>
+              <td> <input class="form-control" name=""> </td>
+              <td> <input class="form-control" name=""> </td>
+              <td> <input class="form-control" name=""> </td>
+            </tr>
+            <tr>
+              <td> <input class="form-control" name=""> </td>
+              <td> <input class="form-control" name=""> </td>
+              <td> <input class="form-control" name=""> </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-12 card mt-4 p-4">
+          <div class="row">
+            <div class="col-4">Remboursé:</div>
+            <div class="col-2"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Oui</label></div>
+            <div class="col-2"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Non</label></div>
+          </div>
+          <div class="row">
+            <div class="col-4">Coût payé par patient après remboursement : </div>
+            <div class="col-2"><input class="form-control" type="number" min=0 max="99999" placeholder="Prix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color">5.3 AINS/ Antalgiques/ Traitements concomitants/ Autres :</h4 class="text-color">
+        </div>
+        <div class="col-2"> <input type="checkbox" name="dmrd" data-toggle="collapse" data-target="#ains"> Oui </div>
+      </div>
+      <div class="row mt-2 collapse" id="ains">
+        <div class="col-12">
+          <table class="table table-hover table-bordered">
+            <tr>
+              <th> Nom de la spécialité</th>
+              <th> Fréquence de prise/ semaine</th>
+              <th> Coût d’une boite </th>
+              <th> Coût mensuel </th>
+              <th> Coût du semestre </th>
+            </tr>
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=20 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+            </tr>
+
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=20 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+            </tr>
+
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=20 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+            </tr>
+
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=20 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+            </tr>
+
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=20 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-12 card mt-4 p-4">
+          <div class="row">
+            <div class="col-4">Remboursé:</div>
+            <div class="col-2">
+              <input name="rembourse_1" class="" type="radio"></input>
+              <label class="pl-3">Oui</label>
+            </div>
+            <div class="col-2">
+              <input name="rembourse_1" class="" type="radio"></input>
+              <label class="pl-3">Non</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">Coût payé par patient après remboursement : </div>
+            <div class="col-2"><input class="form-control" type="number" min=0 max="99999" placeholder="Prix"></div>
+          </div>
+          <div class="row">
+            <div class="col-4">Coût payé l’organisme gestionnaire : </div>
+            <div class="col-2"><input class="form-control" type="number" min=0 max="99999" placeholder="Prix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h3>6. Traitements Chirurgicaux </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color">
+            Traitements Chirurgicaux
+          </h4>
+        </div>
+        <div class="col-2">
+          <input type="checkbox" name="okok" data-toggle="collapse" data-target="#trtchrgc" name=""> Oui
+        </div>
+      </div>
+
+
+      <div class="row mt-2 collapse" id="trtchrgc">
+        <div class="col-12">
+          <table class="table table-hover table-bordered">
+            <tr>
+              <th> Nature de l’acte chirurgicale </th>
+              <th> Lieux de l’acte </th>
+              <th> Coût totale de l’acte </th>
+              <th> Date de Réalisation </th>
+              <th> Comptable ? </th>
+            </tr>
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="date" name=""> </td>
+              <td> <input class="form-control" type="checkbox" name=""> </td>
+            </tr>
+
+          </table>
+        </div>
+        <div class="col-12 card mt-4 p-4">
+          <div class="row">
+            <div class="col-4">Remboursé:</div>
+            <div class="col-2"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Oui</label></div>
+            <div class="col-2"><input name="rembourse_1" class="" type="radio"></input> <label class="pl-3">Non</label></div>
+          </div>
+          <div class="row">
+            <div class="col-4">Coût payé par patient après remboursement : </div>
+            <div class="col-2"><input class="form-control" type="number" min=0 max="99999" placeholder="Prix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h3 class="">7. Appareillage </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5">
+          <h3 class="text-color">Appareillage</h3>
+        </div>
+
+        <div class="col-2">
+          <input type="checkbox" name="okok" data-toggle="collapse" data-target="#aprl" name=""> Oui
+        </div>
+      </div>
+      <div class="row mt-2 collapse" id="aprl">
+        <div class="col-12">
+          <table class="table table-hover table-bordered">
+            <tr>
+              <th> Non de l’appareil </th>
+              <th> Coût de l’appareil </th>
+              <th> Date d’achat </th>
+            </tr>
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="date" name=""> </td>
+            </tr>
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="date" name=""> </td>
+            </tr>
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="date" name=""> </td>
+            </tr>
+            <tr>
+              <td> <input class="form-control" type="text" name=""> </td>
+              <td> <input class="form-control" type="number" max=9999 name=""> </td>
+              <td> <input class="form-control" type="date" name=""> </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="col-12 card mt-4 p-4">
+          <div class="row">
+            <div class="col-4">Remboursé:</div>
+            <div class="col-2">
+              <input name="rembourse_1" class="" type="radio"></input>
+              <label class="pl-3">Oui</label>
+            </div>
+            <div class="col-2">
+              <input name="rembourse_1" class="" type="radio"></input>
+              <label class="pl-3">Non</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">Coût payé par patient après remboursement : </div>
+            <div class="col-2"><input class="form-control" type="number" min=0 max="99999" placeholder="Prix"></div>
+          </div>
+          <div class="row">
+            <div class="col-4">Coût payé l’organisme gestionnaire : </div>
+            <div class="col-2"><input class="form-control" type="number" min=0 max="99999" placeholder="Prix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h3 class="">8. Kinésithérapie </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5">
+          <h4 class="text-color"> 8.1 Au sein de l’HEY ou toute autre structure public :</h6>
+        </div>
+        <div class="col-2">
+          <input type="checkbox" name="okok" data-toggle="collapse" data-target="#kin_pblc" name=""> Oui
+        </div>
+
+      </div>
+      <div class="row mt-2 collapse" id="kin_pblc">
+        <div class="col-2"> Nombre de visite</div>
+        <div class="col-2"> <input class="form-control" type="number" name=""> </div>
+
+        <div class="col-2"> *40 </div>
+      </div>
+      <div class="row">
+
+        <div class="col-5">
+          <h4 class="text-color"> 8.2 Au sein de l’HEY ou toute autre structure privée :</h6>
+
+
+        </div>
+        <div class="col-2">
+          <input type="checkbox" name="okok" data-toggle="collapse" data-target="#kin_prv" name=""> Oui
+        </div>
+      </div>
+      <div class="row mt-2 collapse" id="kin_prv">
+        <div class="col-2"> Nombre de visites</div>
+        <div class="col-2"> <input class="form-control" type="number" name=""> </div>
+        Prix
+        <div class="col-2"> <input class="form-control" type="number" name=""> </div>
+      </div>
+    </div>
+
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-5">
+          <h3 class="">9. Transport </h3>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-2"> Ville d’habitat </div>
+        <div class="col-4"> <input class="form-control" type="text" name=""> </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-3"> Coût des déplacements à l’hôpital </div>
+        <div class="col-1"> <input class="form-control" max="20" type="number" name="" placeholder="Nb. déplacements"> </div>
+        x
+        <div class="col-1"> <input class="form-control" max="20" type="number" name="" placeholder="Nb. de personne déplacées"> </div>
+        x
+        <div class="col-1"> <input class="form-control" max="9999" type="number" name="" placeholder="Coûts"> </div>
+      </div>
+    </div>
+    <hr>
+    <div class="col-12 mt-5 mb-5">
+      <input type="submit" class="btn btn-info btn-block">
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
